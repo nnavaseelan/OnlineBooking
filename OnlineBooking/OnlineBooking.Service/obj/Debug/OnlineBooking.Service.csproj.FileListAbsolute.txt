@@ -1,0 +1,5 @@
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.pdb
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache

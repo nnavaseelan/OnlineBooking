@@ -1,0 +1,28 @@
+I have a project that I am working on (you can start from scratch on this one)  where I need a calendar (please use C#, mvc, JQuery)
+Here's what it needs to do:
+1 - Show a calendar to the user.  The user enters a date, then selects a time slot between 3 hours and 10 hours.
+Then they enter their name, email, phone number.  
+
+You save this information to a DB. For each time slot, there are 10 bookings.  
+SO After the 10th person books the time, no one else can pick it (show the calendar time as blocked)
+Also, is I book 9/1/2017 @ 9:00 am, no one can book 9/1/2017 @ 10:00 (
+someone already is using starting 9:00) 
+Does this make sens?
+
+no per time slot
+3 pm to 6 pm...Max 10 booking?
+So, if the first customer picks 9:00-12:00, another can pick either 9:00-12:00 or 12:00 to 3:00
+exactly
+but if there is a booking for 3:00, we cannot pick 4:00
+If there are no bookings for the day, they can pick any time
+
+so the Calendar is for public users?
+
+[23/08/2017 18:02:10] Barkha Herman: Yes.  First thing they see
+[23/08/2017 18:02:27] Navaseelan: you need admin section to see the bookings? with login permission
+
+Yes, and if you want you can hard code the user / pwd.
+The important part is the Admin View
+Tehy have an existing DB for users, that we will integrate in phase 2
+Here's an example
+http://starliteboatcharters.com/ <http://starliteboatcharters.com/>  

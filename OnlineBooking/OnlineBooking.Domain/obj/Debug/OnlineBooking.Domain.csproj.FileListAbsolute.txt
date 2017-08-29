@@ -1,0 +1,14 @@
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.dll.config
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.pdb
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\EntityFramework.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\EntityFramework.xml
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.dll
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.pdb
+E:\UpWork\Angular4+Material\OnlineBooking\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.csprojResolveAssemblyReference.cache
