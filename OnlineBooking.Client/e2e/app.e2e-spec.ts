@@ -1,14 +1,14 @@
-import { OnlineBooking.ClientPage } from './app.po';
+import { APMPage } from './app.po';
 
-describe('online-booking.client App', () => {
-  let page: OnlineBooking.ClientPage;
+describe('apm App', () => {
+  let page: APMPage;
 
   beforeEach(() => {
-    page = new OnlineBooking.ClientPage();
+    page = new APMPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getParagraphText()).toEqual('Welcome to Angular: Getting Started!!');
   });
 });
