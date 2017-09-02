@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pm-root',
+  selector: 'app-root',
   template: `
     <div>
         <nav class='navbar navbar-default'>
@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
                 <a class='navbar-brand'>{{pageTitle}}</a>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['/calendar']">Booking Calendar</a></li>
-                    <li><a [routerLink]="['/login']">Login</a></li>
+                    <li class='pull-right'><a [routerLink]="['/login']">Login</a></li>
                 </ul>
             </div>
         </nav>

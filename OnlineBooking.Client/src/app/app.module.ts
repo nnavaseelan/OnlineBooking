@@ -6,22 +6,24 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
-import { LoginComponent } from './app/login/login.component';
+import { LoginComponent } from './login/login.component';
+import { BookingcalendarComponent } from './bookingcalendar/bookingcalendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoginComponent
+    LoginComponent,
+    BookingcalendarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-        { path: 'calendar', component: WelcomeComponent },
-        { path: 'login', component: WelcomeComponent },
-        { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-        { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+        { path: 'calendar', component: BookingcalendarComponent },
+        { path: 'login', component: LoginComponent },
+        { path: '', redirectTo: 'calendar', pathMatch: 'full'},
+        { path: '**', redirectTo: 'calendar', pathMatch: 'full'}
     ]),
     ProductModule
   ],

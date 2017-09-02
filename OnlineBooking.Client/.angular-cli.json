@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "apm"
+    "name": "booking"
   },
   "apps": [
     {
@@ -18,7 +18,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "pm",
+      "prefix": "booking",
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css"
