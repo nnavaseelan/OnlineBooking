@@ -1,24 +1,29 @@
-import { Component } from '@angular/core';
+
+import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { EJComponents } from 'ej-angular2';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div>
-        <nav class='navbar navbar-default'>
-            <div class='container-fluid'>
-                <a class='navbar-brand'>{{pageTitle}}</a>
-                <ul class='nav navbar-nav'>
-                    <li><a [routerLink]="['/calendar']">Booking Calendar</a></li>
-                    <li class='pull-right'><a [routerLink]="['/login']">Login</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class='container'>
-            <router-outlet></router-outlet>
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+template: `
+<div>
+    <nav class='navbar navbar-default'>
+        <div class='container-fluid'>
+            <a class='navbar-brand'>{{pageTitle}}</a>
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['/calendar']">Booking Calendar</a></li>
+                <li><a [routerLink]="['/login']">Login</a></li>
+            </ul>
         </div>
-     </div>
-    `
+    </nav>
+    <div class='container'>
+        <router-outlet></router-outlet>
+    </div>
+ </div>
+`
 })
 export class AppComponent {
-  pageTitle: string = '';
+  title = 'app works!';
+
 }

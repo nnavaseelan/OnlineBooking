@@ -1,32 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { EJAngular2Module } from 'ej-angular2'; 
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProductModule } from './products/product.module';
-import { LoginComponent } from './login/login.component';
-import { BookingcalendarComponent } from './bookingcalendar/bookingcalendar.component';
+import { WelcomeComponent } from "app/home/welcome.component";
+import { BookingcalendarComponent } from "app/bookingcalendar/bookingcalendar.component";
+import { LoginComponent } from "app/login/login.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    LoginComponent,
-    BookingcalendarComponent
+    BookingcalendarComponent,LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot([
-        { path: 'calendar', component: BookingcalendarComponent },
-        { path: 'login', component: LoginComponent },
-        { path: '', redirectTo: 'calendar', pathMatch: 'full'},
-        { path: '**', redirectTo: 'calendar', pathMatch: 'full'}
-    ]),
-    ProductModule
+      { path: 'calendar', component: BookingcalendarComponent },
+      { path: 'login', component: LoginComponent },
+      { path: '', redirectTo: 'calendar', pathMatch: 'full'},
+      { path: '**', redirectTo: 'calendar', pathMatch: 'full'}
+  ]),
+    EJAngular2Module.forRoot()
   ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

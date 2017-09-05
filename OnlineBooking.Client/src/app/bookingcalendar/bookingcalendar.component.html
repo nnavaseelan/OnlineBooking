@@ -3,6 +3,94 @@
       Booking Calendar
   </div>
   <div class="panel-body"  >      
-    
+    <!-- <ej-schedule id="Schedule1" width="100%" height="525px" currentView="week" currentDate="3/9/2017"
+       [appointmentSettings.dataSource]=scheduleData >
+    </ej-schedule> -->
+
+    <ej-schedule id="Schedule1"  width="100%" height="525px" [currentDate]=currentDate [appointmentSettings.dataSource]=scheduleData
+    (appointmentWindowOpen)="onAppointmentWindowOpen($event)">
+    </ej-schedule>
+
+    <ej-dialog width="600px" height="auto" [showOnInit]="false" [enableModal]="true" title="Create Appointment" [enableResize]="false"
+    (close)="clearFields($event)" id="customWindow" style="display: none">
+    <div id="appWindow">
+        <form id="custom">
+            <table width="100%" cellpadding="5">
+                <tbody>
+                    <tr style="display: none">
+                        <td>
+                            Id:
+                        </td>
+                        <td colspan="2">
+                            <input id="customerId" type="text" name="customerId" />
+                            <input id="bookingSlotId" type="text" name="bookingSlotId" />
+                            <input id="bookingSlotCount" type="text" name="bookingSlotCount" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Full Name:
+                        </td>
+                        <td colspan="2">
+                            <input id="name" type="text" value="" name="FullName" style="width: 100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email id:
+                        </td>
+                        <td colspan="2">
+                          <input id="emailId" type="text" value="" name="emailId" style="width: 100%" />
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          Phone No:
+                      </td>
+                      <td colspan="2">
+                        <input id="phoneNo" type="text" value="" name="phoneNo" style="width: 100%" />
+                      </td>
+                  </tr>
+                    <tr>
+                        <td>
+                            StartTime:
+                        </td>
+                        <td>
+                            <input id="StartTime" ej-datetimepicker width="150" type="text" value="" name="StartTime" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            EndTime:
+                        </td>
+                        <td>
+                            <input id="EndTime" ej-datetimepicker width="150" type="text" value="" name="EndTime" />
+                        </td>
+                    </tr>                
+                  
+                   
+                    <tr id="edittr" style="display:none;">
+                        <td colspan="3">
+                            <div><a id="recedit" (click)="Recurrencerule()">Edit</a></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div>
+            <button type="button" (ejclick)="cancel($event)" ej-button width="85px" text="Cancel" id="btncancel" style="float:right;margin-right:20px;margin-bottom:10px;"></button>
+            <button type="button" (ejclick)="save($event)" ej-button width="85px" text="Submit" id="btnsubmit" style="float:right;margin-right:20px;margin-bottom:10px;"></button>
+        </div>
+    </div>
+    <div id="recWindow" style="display: none">
+        <div id="recurrenceEditor"></div>
+        <br />
+        <div>
+            <input ej-button (ejclick)="onRecurrenceClick($event)" text="Cancel" type="button" id="reccancel" />
+            <input ej-button (ejclick)="onRecurrenceClick($event)" text="Submit" type="button" id="recsubmit" />
+        </div>
+    </div>
+</ej-dialog>
+
   </div>
 </div>
