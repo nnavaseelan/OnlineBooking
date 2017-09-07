@@ -8,14 +8,13 @@ import { EJComponents } from 'ej-angular2';
 })
 
 export class BookingcalendarComponent implements OnInit {
-  
+  scheduleIteratons : number = 0;
   ngOnInit(): void {
     
   }
   
   public scheduleData: any;
   constructor() {
-
 
     // this.dataManager = ej.DataManager({
     //     // get the required appointments from service
@@ -24,43 +23,67 @@ export class BookingcalendarComponent implements OnInit {
     //     crossDomain: true
     // });
      
-
-      this.scheduleData = [{
-          Id: 100, Subject: "Sea Gold", StartTime: new Date(2014, 4, 5, 10, 0),
-          EndTime: new Date(2014, 4, 5, 11, 0), Description: "", 
+  this.scheduleData = [{
+          Id: 100, 
+          FullName: "Sea Gold", 
+          StartTime: new Date(2017,9,5, 10, 0),
+          EndTime: new Date(2017,9,5, 11, 0), 
+          Description: "", 
           AllDay: false, 
           Recurrence: false,
-          Categorize: "1,3",
-          Location: "CHINA"
+          Categorize: "1,3",         
+          Email:"navaseelan4u@gmail.com",
+          Phone:"0774475196"
          
       },
       {
-          Id: 101, Subject: "Bering Sea Gold", StartTime: new Date(2014, 4, 2, 16, 0),
-          EndTime: new Date(2014, 4, 2, 17, 30), Description: "",
-           AllDay: false, Recurrence: false, Categorize: "2,5",Location: "Srilanka"
+          Id: 101,
+          FullName: "Bering Sea Gold", 
+          StartTime: new Date(2017, 9,5, 16, 0),
+          EndTime: new Date(2017, 9,5, 17, 30), 
+          Description: "",
+           AllDay: false, 
+           Recurrence: false, 
+           Categorize: "2,5",          
+           Email:"navaseelan4u@gmail.com",
+           Phone:"0774475196"
       },
       {
-          Id: 102, Subject: "What Happened Next?", StartTime: new Date(2014, 4, 4, 1, 0),
-          EndTime: new Date(2014, 4, 4, 1, 30), Description: "", AllDay: false, 
-          Recurrence: false, Categorize: "3,6",Location: "India"
+          Id: 102, 
+          FullName: "What Happened Next?", 
+          StartTime: new Date(2017, 9, 6, 1, 0),
+          EndTime: new Date(2017, 9, 6, 1, 30), 
+          Description: "", 
+          AllDay: false, 
+          Recurrence: false, 
+          Categorize: "3,6",         
+          Email:"navaseelan4u@gmail.com",
+          Phone:"0774475196"
       }];
 
   }
+
+  onCellClick(args) {
+    args.cancel = true;  // Prevents inline appointment creation on clicking the cells.
+    this.onAppointmentWindowOpen(args);
+ }
   
 
   public recurRule;
+
   // This function executes before the default appointment window opens
   onAppointmentWindowOpen(args: any): void {
       args.cancel = true; // prevents the display of default appointment window
       // defining recurrence editor control to be used as custom appointment window
       $("#recurrenceEditor").ejRecurrenceEditor({ selectedRecurrenceType: 0, frequencies: ["daily", "weekly", "monthly", "yearly", "everyweekday"] });
-      $("#recurrence").ejCheckBox({ change: this.recurCheck });
+     // $("#recurrence").ejCheckBox({ change: this.recurCheck });
       var schObj = $("#Schedule1").data("ejSchedule");
       // When double clicked on the Scheduler cells, fills the StartTime and EndTime fields appropriately
       $("#StartTime").ejDateTimePicker({ value: args.startTime });
       $("#EndTime").ejDateTimePicker({ value: args.endTime });
       $("#recWindow").css("display", "none");
       $("#appWindow").css("display", "");
+
       if (!ej.isNullOrUndefined(args.target)) {
           // When double clicked on the Scheduler cells, if the target is allday or month cells – only then enable check mark on the allday checkbox
           if ($(args.target.currentTarget).hasClass("e-alldaycells") || (args.startTime.getHours() == 0 && args.endTime.getHours() == 23))
@@ -74,8 +97,12 @@ export class BookingcalendarComponent implements OnInit {
       }
       // If double clicked on the appointments, fill the custom appointment window fields with appropriate values.
       if (!ej.isNullOrUndefined(args.appointment)) {
-          $("#customId").val(args.appointment.Id);
-          $("#subject").val(args.appointment.Subject);
+          
+          $("#customerId").val(args.appointment.Id);
+          
+          $("#name").val(args.appointment.FullName);
+           $("#emailId").val(args.appointment.Email);
+            $("#phoneNo").val(args.appointment.Phone);
           $("#StartTime").ejDateTimePicker({ value: new Date(args.appointment.StartTime) });
           $("#EndTime").ejDateTimePicker({ value: new Date(args.appointment.EndTime) });
           // Fills the Appointment type dropdown with its value
@@ -87,7 +114,9 @@ export class BookingcalendarComponent implements OnInit {
           });
           $("#allday").prop("checked", args.appointment.AllDay);
           $("#recurrence").ejCheckBox({ checked: args.appointment.Recurrence });
+          console.log(args.appointment.Recurrence);
           if (args.appointment.Recurrence) {
+
               $("#edittr").css("display", "");
               $("#recsummary").html(args.appointment.RecurrenceRule);
               $("#summarytr").css("display", "");
@@ -95,18 +124,43 @@ export class BookingcalendarComponent implements OnInit {
               recObj._recRule = args.appointment.RecurrenceRule; // app recurrence rule is stored in Recurrence editor object
               recObj.recurrenceRuleSplit(args.appointment.RecurrenceRule, args.appointment.recurrenceExDate); //splitting the recurrence rule
               recObj.showRecurrenceSummary(args.appointment.Id); // updating the recurrence rule in Recurrence editor
-          }
+             
+        }
       }
       $("#customWindow").ejDialog("open");
   }
 
   save() {
-      // checks if the subject value is not left blank before saving it.
-      if ($.trim($("#subject").val()) == "") {
-          $("#subject").addClass("error");
+      // checks if the  value is not left blank before saving it.
+      let name = $.trim($("#name").val());
+      let email = $.trim($("#emailId").val());
+      let phone = $.trim($("#phoneNo").val());
+
+      if (name == "") {
+          $("#name").addClass("error");
           return false;
       }
-      var obj = {};
+      if (email == "") {
+            $("#emailId").addClass("error");
+            return false;
+        }
+      if (phone == "") {
+            $("#phoneNo").addClass("error");
+            return false;
+        }
+       let newId  =  this.scheduleData[this.scheduleData.length-1].Id;
+    
+      var obj = {Id: newId+1, 
+          FullName: name, 
+          StartTime: new Date($("#StartTime").val()),
+          EndTime: new Date($("#EndTime").val()), 
+          Description: "", 
+          AllDay: false, 
+          Recurrence: false,
+          Categorize: "1,3",         
+          Email:email,
+          Phone:phone};
+    
     //var formelement = $("#customWindow").find("#custom").get(0);
     // looping through the custom form elements to get each value and form a JSON object
     //   for (var index = 0; index < formelement.length; index++) {
@@ -129,12 +183,31 @@ export class BookingcalendarComponent implements OnInit {
     //   }
 
       obj["RecurrenceRule"] = (obj["Recurrence"]) ? this.recurRule : null;
-      var appTypeObj = $("#AppointmentType").data("ejDropDownList");
-      obj["AppointmentType"] = appTypeObj.getSelectedValue();
-      $("#customWindow").ejDialog("close");
+      console.log($("#recurrence").val());
+      //var appTypeObj = $("#AppointmentType").data("ejDropDownList");
+      //obj["AppointmentType"] = appTypeObj.getSelectedValue();
+// this.scheduleData.find((element) => {if (element.Id == )})
+this.scheduleData.forEach(element => {
+    if (element.StartTime == obj.StartTime && element.endTime == obj.EndTime)
+    {
+        this.scheduleIteratons ++;
+        if (this.scheduleIteratons >= 10)
+        {
+            alert("Reached maximum of 10 appointments during this period. Please select a different time");
+            return;
+        }
+    }
+});
+
+    if (this.scheduleIteratons < 10)
+    {
       var schObj = $("#Schedule1").data("ejSchedule");
       schObj.saveAppointment(obj);
+      
+      this.scheduleData.push(obj);
       this.clearFields();
+      $("#customWindow").ejDialog("close");
+    }
   }
 
   // This function executes when the cancel button in the custom appointment window is pressed.
@@ -145,10 +218,12 @@ export class BookingcalendarComponent implements OnInit {
 
   // Clears all the field values of the custom window after saving appointments
   clearFields(): void {
-      $("#customId").val("");
+      //$("#bookingSlotId").val("");
       var recObj = $("#recurrenceEditor").ejRecurrenceEditor('instance');
       recObj.clearRecurrenceFields();
-      $("#subject").val("");
+      $("#name").val("");
+      $("#emailId").val("");
+      $("#phoneNo").val("");
       $("#AppointmentType").val("");
       $("#recsummary").html("");
       $("#summarytr").css("display", "none");
@@ -197,6 +272,7 @@ export class BookingcalendarComponent implements OnInit {
 
   // This function executes when the submit/cancel button in the recurrence editor window is pressed.
   onRecurrenceClick(args: any): void {
+      
       if ($(args.e.currentTarget).attr("id") === "recsubmit") {
           var recObj = $("#recurrenceEditor").ejRecurrenceEditor('instance');
           recObj.closeRecurPublic();

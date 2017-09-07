@@ -22,6 +22,19 @@
 
 </head>
 <body>
+  
   <app-root>Loading...</app-root>
+  <script id="tooltipTemplate" type="text/x-jsrender">
+    <div style="width:145px">
+        <div style="padding-top:3px;">
+            <div style="float:left; font:13px Segoe UI; font-weight:bold;">Subject&nbsp;&nbsp;:&nbsp;</div>
+            <div style="padding-top:2px; font:12px Segoe UI SemiBold;">{{:Subject}}</div>
+        </div>
+        <div style="padding-top:3px">
+            <div style="float:left; font:13px Segoe UI; font-weight:bold;">Location:&nbsp;</div>
+            <div style="padding-top:2px; font:12px Segoe UI SemiBold;">{{:Location}}</div>
+        </div>
+    </div>
+</script>
 </body>
 </html>

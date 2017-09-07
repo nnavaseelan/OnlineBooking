@@ -3,13 +3,12 @@
       Booking Calendar
   </div>
   <div class="panel-body"  >      
-    <!-- <ej-schedule id="Schedule1" width="100%" height="525px" currentView="week" currentDate="3/9/2017"
-       [appointmentSettings.dataSource]=scheduleData >
-    </ej-schedule> -->
-
     <ej-schedule id="Schedule1"  width="100%" height="525px" [currentDate]=currentDate [appointmentSettings.dataSource]=scheduleData
-    (appointmentWindowOpen)="onAppointmentWindowOpen($event)">
+    (appointmentWindowOpen)="onAppointmentWindowOpen($event)" [currentView]="Day" [tooltipSettings.enable]="true"  tooltipSettings.templateId="#tooltipTemplate" [views]="['Day','Week','Month']"
+    [allowDragAndDrop]="false" [enableAppointmentResize] ="false" (cellClick)="onCellClick($event)">
+     
     </ej-schedule>
+    
 
     <ej-dialog width="600px" height="auto" [showOnInit]="false" [enableModal]="true" title="Create Appointment" [enableResize]="false"
     (close)="clearFields($event)" id="customWindow" style="display: none">
@@ -23,13 +22,13 @@
                         </td>
                         <td colspan="2">
                             <input id="customerId" type="text" name="customerId" />
-                            <input id="bookingSlotId" type="text" name="bookingSlotId" />
+                            <input id="bookingSlotId" type="text" name="Id" />
                             <input id="bookingSlotCount" type="text" name="bookingSlotCount" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Full Name:
+                            Full Name
                         </td>
                         <td colspan="2">
                             <input id="name" type="text" value="" name="FullName" style="width: 100%" />
@@ -37,23 +36,23 @@
                     </tr>
                     <tr>
                         <td>
-                            Email id:
+                            Email id
                         </td>
                         <td colspan="2">
-                          <input id="emailId" type="text" value="" name="emailId" style="width: 100%" />
+                          <input id="emailId" type="text" value="" name="Email" style="width: 100%" />
                         </td>
                     </tr>
                     <tr>
                       <td>
-                          Phone No:
+                          Phone No
                       </td>
                       <td colspan="2">
-                        <input id="phoneNo" type="text" value="" name="phoneNo" style="width: 100%" />
+                        <input id="phoneNo" type="text" value="" name="Phone" style="width: 100%" />
                       </td>
                   </tr>
                     <tr>
                         <td>
-                            StartTime:
+                            Start Time
                         </td>
                         <td>
                             <input id="StartTime" ej-datetimepicker width="150" type="text" value="" name="StartTime" />
@@ -61,7 +60,7 @@
                     </tr>
                     <tr>
                         <td>
-                            EndTime:
+                            End Time
                         </td>
                         <td>
                             <input id="EndTime" ej-datetimepicker width="150" type="text" value="" name="EndTime" />
@@ -90,7 +89,16 @@
             <input ej-button (ejclick)="onRecurrenceClick($event)" text="Submit" type="button" id="recsubmit" />
         </div>
     </div>
+
+
 </ej-dialog>
 
   </div>
+  
+</div>
+<div>
+<ul>
+<li *ngFor="let item of scheduleData"> {{item | json}} </li>
+</ul>
+
 </div>

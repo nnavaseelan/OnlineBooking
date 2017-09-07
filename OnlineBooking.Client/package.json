@@ -32,7 +32,7 @@
     "@angular/compiler-cli": "^4.0.0",
     "@types/ej.web.all": "^15.3.2",
     "@types/jasmine": "2.5.38",
-    "@types/jquery": "^3.2.12",
+    "@types/jquery": "^2.0.48",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
