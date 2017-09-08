@@ -26,8 +26,8 @@ export class BookingcalendarComponent implements OnInit {
   this.scheduleData = [{
           Id: 100, 
           FullName: "Sea Gold", 
-          StartTime: new Date(2017,9,5, 10, 0),
-          EndTime: new Date(2017,9,5, 11, 0), 
+          StartTime: new Date(2017,9,7, 10, 0),
+          EndTime: new Date(2017,9,7, 13, 0), 
           Description: "", 
           AllDay: false, 
           Recurrence: false,
@@ -39,8 +39,8 @@ export class BookingcalendarComponent implements OnInit {
       {
           Id: 101,
           FullName: "Bering Sea Gold", 
-          StartTime: new Date(2017, 9,5, 16, 0),
-          EndTime: new Date(2017, 9,5, 17, 30), 
+          StartTime: new Date(2017, 9,5, 9, 0),
+          EndTime: new Date(2017, 9,5, 12, 30), 
           Description: "",
            AllDay: false, 
            Recurrence: false, 
@@ -51,8 +51,8 @@ export class BookingcalendarComponent implements OnInit {
       {
           Id: 102, 
           FullName: "What Happened Next?", 
-          StartTime: new Date(2017, 9, 6, 1, 0),
-          EndTime: new Date(2017, 9, 6, 1, 30), 
+          StartTime: new Date(2017, 9, 6,8, 0),
+          EndTime: new Date(2017, 9, 6, 14, 30), 
           Description: "", 
           AllDay: false, 
           Recurrence: false, 
