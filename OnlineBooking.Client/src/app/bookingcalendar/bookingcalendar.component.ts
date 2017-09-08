@@ -23,43 +23,43 @@ export class BookingcalendarComponent implements OnInit {
     //     crossDomain: true
     // });
      
-  this.scheduleData = [{
-          Id: 100, 
-          FullName: "Sea Gold", 
-          StartTime: new Date(2017,9,7, 10, 0),
-          EndTime: new Date(2017,9,7, 13, 0), 
-          Description: "", 
-          AllDay: false, 
-          Recurrence: false,
-          Categorize: "1,3",         
-          Email:"navaseelan4u@gmail.com",
-          Phone:"0774475196"
+//   this.scheduleData = [{
+//           Id: 100, 
+//           FullName: "Sea Gold", 
+//           StartTime: new Date(2017,9,7, 10, 0),
+//           EndTime: new Date(2017,9,7, 13, 0), 
+//           Description: "", 
+//           AllDay: false, 
+//           Recurrence: false,
+//           Categorize: "1,3",         
+//           Email:"navaseelan4u@gmail.com",
+//           Phone:"0774475196"
          
-      },
-      {
-          Id: 101,
-          FullName: "Bering Sea Gold", 
-          StartTime: new Date(2017, 9,5, 9, 0),
-          EndTime: new Date(2017, 9,5, 12, 30), 
-          Description: "",
-           AllDay: false, 
-           Recurrence: false, 
-           Categorize: "2,5",          
-           Email:"navaseelan4u@gmail.com",
-           Phone:"0774475196"
-      },
-      {
-          Id: 102, 
-          FullName: "What Happened Next?", 
-          StartTime: new Date(2017, 9, 6,8, 0),
-          EndTime: new Date(2017, 9, 6, 14, 30), 
-          Description: "", 
-          AllDay: false, 
-          Recurrence: false, 
-          Categorize: "3,6",         
-          Email:"navaseelan4u@gmail.com",
-          Phone:"0774475196"
-      }];
+//       },
+//       {
+//           Id: 101,
+//           FullName: "Bering Sea Gold", 
+//           StartTime: new Date(2017, 9,5, 9, 0),
+//           EndTime: new Date(2017, 9,5, 12, 30), 
+//           Description: "",
+//            AllDay: false, 
+//            Recurrence: false, 
+//            Categorize: "2,5",          
+//            Email:"navaseelan4u@gmail.com",
+//            Phone:"0774475196"
+//       },
+//       {
+//           Id: 102, 
+//           FullName: "What Happened Next?", 
+//           StartTime: new Date(2017, 9, 6,8, 0),
+//           EndTime: new Date(2017, 9, 6, 14, 30), 
+//           Description: "", 
+//           AllDay: false, 
+//           Recurrence: false, 
+//           Categorize: "3,6",         
+//           Email:"navaseelan4u@gmail.com",
+//           Phone:"0774475196"
+//       }];
 
   }
 
@@ -96,13 +96,11 @@ export class BookingcalendarComponent implements OnInit {
           });
       }
       // If double clicked on the appointments, fill the custom appointment window fields with appropriate values.
-      if (!ej.isNullOrUndefined(args.appointment)) {
-          
-          $("#customerId").val(args.appointment.Id);
-          
+      if (!ej.isNullOrUndefined(args.appointment)) {          
+          $("#customerId").val(args.appointment.Id);          
           $("#name").val(args.appointment.FullName);
-           $("#emailId").val(args.appointment.Email);
-            $("#phoneNo").val(args.appointment.Phone);
+          $("#emailId").val(args.appointment.Email);
+          $("#phoneNo").val(args.appointment.Phone);
           $("#StartTime").ejDateTimePicker({ value: new Date(args.appointment.StartTime) });
           $("#EndTime").ejDateTimePicker({ value: new Date(args.appointment.EndTime) });
           // Fills the Appointment type dropdown with its value
@@ -131,6 +129,8 @@ export class BookingcalendarComponent implements OnInit {
   }
 
   save() {
+
+      alert("save clicked");
       // checks if the  value is not left blank before saving it.
       let name = $.trim($("#name").val());
       let email = $.trim($("#emailId").val());
@@ -148,7 +148,7 @@ export class BookingcalendarComponent implements OnInit {
             $("#phoneNo").addClass("error");
             return false;
         }
-       let newId  =  this.scheduleData[this.scheduleData.length-1].Id;
+      let newId  =  this.scheduleData[this.scheduleData.length-1].Id;
     
       var obj = {Id: newId+1, 
           FullName: name, 
@@ -186,18 +186,18 @@ export class BookingcalendarComponent implements OnInit {
       console.log($("#recurrence").val());
       //var appTypeObj = $("#AppointmentType").data("ejDropDownList");
       //obj["AppointmentType"] = appTypeObj.getSelectedValue();
-// this.scheduleData.find((element) => {if (element.Id == )})
-this.scheduleData.forEach(element => {
-    if (element.StartTime == obj.StartTime && element.endTime == obj.EndTime)
-    {
-        this.scheduleIteratons ++;
-        if (this.scheduleIteratons >= 10)
+  // this.scheduleData.find((element) => {if (element.Id == )})
+    this.scheduleData.forEach(element => {
+        if (element.StartTime == obj.StartTime && element.endTime == obj.EndTime)
         {
-            alert("Reached maximum of 10 appointments during this period. Please select a different time");
-            return;
+            this.scheduleIteratons ++;
+            if (this.scheduleIteratons >= 10)
+            {
+                alert("Reached maximum of 10 appointments during this period. Please select a different time");
+                return;
+            }
         }
-    }
-});
+    });
 
     if (this.scheduleIteratons < 10)
     {
@@ -248,27 +248,6 @@ this.scheduleData.forEach(element => {
       }
   }
 
-  // This function executes when the All-day checkbox is checked in the custom appointment window
-  alldayCheck(): void {
-      // Disables and sets the specific hours to the StartTime and EndTime fields, when the all-day checkbox is checked
-    //   if ($("#allday").prop("checked")) {
-    //       $("#StartTime").ejDateTimePicker({
-    //           value: new Date(new Date($("#StartTime").data("ejDateTimePicker").model.value).setHours(0, 0, 0)),
-    //           enabled: false
-    //       });
-    //       $("#EndTime").ejDateTimePicker({
-    //           value: new Date(new Date($("#EndTime").data("ejDateTimePicker").model.value).setHours(0, 0, 0)),
-    //           enabled: false
-    //       });
-    //   } else {
-    //       $("#StartTime").ejDateTimePicker({
-    //           enabled: true
-    //       });
-    //       $("#EndTime").ejDateTimePicker({
-    //           enabled: true
-    //       });
-    //   }
-  }
 
   // This function executes when the submit/cancel button in the recurrence editor window is pressed.
   onRecurrenceClick(args: any): void {
@@ -300,6 +279,19 @@ this.scheduleData.forEach(element => {
       $("#recWindow").css("display", "");
       $("#appWindow").css("display", "none");
   }
- 
+  
+ onBeforeAppointmentChange(args) { 
+    if (new Date(args.appointment.StartTime).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0)) 
+        args.cancel = true 
+  }  
+
+//   onBeforeAppointmentCreate(args) { 
+//     if (ej.isNullOrUndefined(args.appointment[0])) 
+//         app = args.appointment; 
+//     else 
+//         app = args.appointment[0]; 
+//     if (new Date(app.StartTime).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0)) 
+//         args.cancel = true 
+// } 
 
 }

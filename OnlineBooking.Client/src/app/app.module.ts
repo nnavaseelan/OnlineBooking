@@ -12,7 +12,7 @@ import { LoginComponent } from "app/login/login.component";
 @NgModule({
   declarations: [
     AppComponent,
-    BookingcalendarComponent,LoginComponent
+    BookingcalendarComponent,LoginComponent,WelcomeComponent
   ],
   imports: [
     BrowserModule,

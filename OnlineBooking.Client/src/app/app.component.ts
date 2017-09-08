@@ -10,7 +10,7 @@ template: `
 <div>
     <nav class='navbar navbar-default'>
         <div class='container-fluid'>
-            <a class='navbar-brand'>{{pageTitle}}</a>
+            <a class='navbar-brand'></a>
             <ul class='nav navbar-nav'>
                 <li><a [routerLink]="['/calendar']">Booking Calendar</a></li>
                 <li><a [routerLink]="['/login']">Login</a></li>
