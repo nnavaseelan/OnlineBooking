@@ -1,7 +1,7 @@
 
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { EJComponents } from 'ej-angular2';
-
+import { BookingserviceService } from './services/bookingservice.service';
 @Component({
   selector: 'app-root',
 //   templateUrl: './app.component.html',
@@ -14,6 +14,7 @@ template: `
             <ul class='nav navbar-nav'>
                 <li><a [routerLink]="['/calendar']">Booking Calendar</a></li>
                 <li><a [routerLink]="['/login']">Login</a></li>
+                <li>Total Appointments </li>
             </ul>
         </div>
     </nav>

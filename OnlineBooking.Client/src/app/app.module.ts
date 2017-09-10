@@ -5,14 +5,16 @@ import { HttpModule } from '@angular/http';
 import { EJAngular2Module } from 'ej-angular2'; 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from "app/home/welcome.component";
 import { BookingcalendarComponent } from "app/bookingcalendar/bookingcalendar.component";
 import { LoginComponent } from "app/login/login.component";
+import {  BookingserviceService } from './services/bookingservice.service';
+import {  Routes } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookingcalendarComponent,LoginComponent,WelcomeComponent
+    BookingcalendarComponent,LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { LoginComponent } from "app/login/login.component";
   ]),
     EJAngular2Module.forRoot()
   ],
-  providers: [],
+  providers: [BookingserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
