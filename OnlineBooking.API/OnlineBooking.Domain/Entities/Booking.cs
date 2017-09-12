@@ -22,7 +22,7 @@ namespace OnlineBooking.Domain.Entities
         public DateTime Date { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public BookingStatus Status { get; set; }
+        public int Status { get; set; }
         public Booking()
         {
             Id = Guid.NewGuid();

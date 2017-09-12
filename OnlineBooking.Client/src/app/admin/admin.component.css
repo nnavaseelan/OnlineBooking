@@ -1,0 +1,13 @@
+.inputwidth {width: 90%}
+
+label {
+    display: block;
+    margin: 5px 0px;
+}
+
+button {
+    display: block;
+    margin: 10px 0px;
+}
+
+.table {width:95%}

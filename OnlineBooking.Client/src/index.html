@@ -23,18 +23,92 @@
 </head>
 <body>
   
-  <app-root>Loading...</app-root>
+  <app-root>
+     <style>
+  app-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    color: #fff;
+    text-transform: uppercase;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen-Sans,
+        Ubuntu,
+        Cantarell,
+        Helvetica,
+        sans-serif;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  }
+  body {
+    background:#337ab7;
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes dots {
+    50% {
+      transform: translateY(-.4rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .d {
+    animation: dots 1.5s ease-out infinite;
+  }
+  .d-2 {
+    animation-delay: .5s;
+  }
+  .d-3 {
+    animation-delay: 1s;
+  }
+  </style>
+  
+      
+Loading<span class="d">.</span><span class="d d-2">.</span><span class="d d-3">.</span>
+</app-root>
   <script id="tooltipTemplate" type="text/x-jsrender">
-    <div style="width:145px">
-        <div style="padding-top:3px;">
-            <div style="float:left; font:13px Segoe UI; font-weight:bold;">Subject&nbsp;&nbsp;:&nbsp;</div>
-            <div style="padding-top:2px; font:12px Segoe UI SemiBold;">{{:Subject}}</div>
+    <div style="width:auto; max-width:200px;">
+        <div style="padding:5px;">
+            
+            <div style="font:12px Segoe UI SemiBold;">Name : {{:Name}}</div>
         </div>
-        <div style="padding-top:3px">
-            <div style="float:left; font:13px Segoe UI; font-weight:bold;">Location:&nbsp;</div>
-            <div style="padding-top:2px; font:12px Segoe UI SemiBold;">{{:Location}}</div>
-        </div>
+        
     </div>
+</script>
+<script id="workTemplate" type="text/x-jsrender">
+    {{if resource.classname == 'e-parentnode'}}
+        {{:resource.text}}
+    {{else}}
+        {{if date.getDay() == 5}}
+            <div style="background-color:lightblue;height:100%">Weekend</div>
+        {{else}}
+            {{if view == 'month' && resource.text == 'Party Hall-A' && date.getDay() == 5}}
+                <div style="background-color:burlywood">Meeting</div>
+            {{else resource.text != 'Party Hall-B' && date.getDate() == 15}}
+                <div style="background-color:thistle">Holiday</div>
+            {{else view != 'month' && resource.text == 'Party Hall-A' && date.getDay() == 5 && date.getHours() == 10}}
+                <div style="background-color:burlywood">Meeting</div>
+            {{else view == 'month' && resource.text == 'Party Hall-B' && date.getDay() == 5}}
+                <div style="background-color:lightblue">Conf.</div>
+            {{else resource.text == 'Party Hall-B' && date.getDate() == 16}}
+                <div style="background-color:darkkhaki">Happyday</div>
+            {{else view != 'month' && resource.text == 'Party Hall-B' && date.getDay() == 5 && date.getHours() == 12}}
+                <div style="background-color:goldenrod">Conf.</div>
+            {{else date.getDate() == 10 && date.getMonth() == 11}}
+                <div style="background-color:palegreen">Day Spl</div>
+            {{else date.getDate() == 25 && date.getMonth() == 11}}
+                <div style="background-color:sandybrown">Christmas</div>
+            {{/if}}
+        {{/if}}
+    {{/if}}
 </script>
 </body>
 </html>

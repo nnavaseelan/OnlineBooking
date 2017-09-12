@@ -36,7 +36,7 @@ namespace OnlineBooking.API.Controllers
                 Date=model.date,
                 StartTime=model.startTime,
                 EndTime=model.endTime,
-                Status= BookingStatus.Pending
+                Status= (int)BookingStatus.Pending
             };
 
             var result = await _bookingService.InsertBookingAsync(booking);
@@ -49,18 +49,43 @@ namespace OnlineBooking.API.Controllers
 
         [Route("allowcount")]
         [HttpGet]
-        public async Task<IHttpActionResult> BookingCount(DateTime date, DateTime startTime, DateTime endTime)
+        public async Task<IHttpActionResult> BookingCount(DateTime startTime, DateTime endTime)
         {
-            var result = await _bookingService.GetBookingCountAsync(date,startTime,endTime);
+            var result = await _bookingService.GetBookingCountAsync(startTime,endTime);
             return Json(result);
         }
 
         [Route("bookinglist")]
         [HttpGet]
-        public async Task<IHttpActionResult> Bookings(DateTime date, DateTime startTime, DateTime endTime)
+        public async Task<IHttpActionResult> Bookings(DateTime startTime, DateTime endTime)
         {
-            var result = await _bookingService.GetBookings(date, startTime, endTime);
+            var result = await _bookingService.GetBookings(startTime, endTime);
             return Json(result);
+        }
+
+        [Route("updateappointment")]
+        [HttpPost]
+        public async Task<IHttpActionResult> UpdateAppointment(BookingModel model, Guid id)
+        {
+            //var booking =Mapper.Map<BookingModel,Booking>(model);
+            var booking = new Booking
+            {
+                
+                Name = model.name,
+                Email = model.email,
+                Phone = model.phone,
+                Date = model.date,
+                StartTime = model.startTime,
+                EndTime = model.endTime,
+                Status = (int)BookingStatus.Pending
+            };
+
+            var result = await _bookingService.UpdateBookingAsync(booking, id);
+            if (result.Id == booking.Id)
+                return Ok("Success");
+            else
+                return BadRequest("Saved failed !");
+
         }
     }
 }

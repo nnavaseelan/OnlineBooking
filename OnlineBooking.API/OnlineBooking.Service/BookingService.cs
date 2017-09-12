@@ -23,15 +23,15 @@ namespace OnlineBooking.Service
             return await _respository.GetAsync(bookingId);
         }
 
-        public async Task<int> GetBookingCountAsync(DateTime date, DateTime startTime, DateTime endTime)
+        public async Task<int> GetBookingCountAsync(DateTime startTime, DateTime endTime)
         {
-            var result= await _respository.FindAllAsync(q=>q.Date==date && q.StartTime>= startTime && q.EndTime<=endTime);
+            var result= await _respository.FindAllAsync(q=>q.StartTime>= startTime && q.EndTime<=endTime);
             return result.Count();            
         }
 
-        public async Task<List<Booking>> GetBookings(DateTime date, DateTime startTime, DateTime endTime)
+        public async Task<List<Booking>> GetBookings(DateTime startTime, DateTime endTime)
         {
-            var result = await _respository.FindAllAsync(q => q.Date == date && q.StartTime >= startTime && q.EndTime <= endTime);
+            var result = await _respository.FindAllAsync(q => q.StartTime >= startTime && q.EndTime <= endTime);
             return result.ToList();
         }
 
@@ -39,5 +39,11 @@ namespace OnlineBooking.Service
         {
             return await _respository.AddAsync(booking);            
         }
+
+        public async Task<Booking> UpdateBookingAsync(Booking booking,Guid Id)
+        {
+            return await _respository.UpdateAsync(booking, Id );
+        }
+
     }
 }

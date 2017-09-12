@@ -17,3 +17,16 @@ E:\UpWork\BPO\BookingManagement\OnlineBooking.API\OnlineBooking.Service\bin\Debu
 E:\UpWork\BPO\BookingManagement\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.xml
 E:\UpWork\BPO\BookingManagement\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 E:\UpWork\BPO\BookingManagement\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.pdb
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.pdb
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.xml
+D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
+D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
+D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb

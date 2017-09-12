@@ -4,11 +4,11 @@
   </div>
 
   <div class="panel-body">
-
-    <ej-schedule id="Schedule1" width="100%" height="525px"  [appointmentSettings.dataSource]=scheduleData
+    
+    <ej-schedule id="Schedule1" width="100%" height="525px"  [appointmentSettings.dataSource]=scheduleData [minDate] = "minDate"
       (appointmentWindowOpen)="onAppointmentWindowOpen($event)"  [tooltipSettings.enable]="true" tooltipSettings.templateId="#tooltipTemplate"
-      [views]="['Week']" [allowDragAndDrop]="false" [enableAppointmentResize]="false"      
-      (cellClick)="onCellClick($event)">
+      [views]="['day','Week']" [allowDragAndDrop]="false" [enableAppointmentResize]="false" [showQuickWindow]="false" (appointmentClick) = "onCellClick($event)"    
+      (cellClick)="onCellClick($event)" (queryCellInfo) = "SetSchedularLayout($event)">
     </ej-schedule>
 
     <ej-dialog width="600px" height="auto" [showOnInit]="false" [enableModal]="true" title="Create Appointment" [enableResize]="false"
@@ -51,7 +51,7 @@
                   <input id="phoneNo" type="text" value="" name="Phone" style="width: 100%" />
                 </td>
               </tr>
-              <tr>
+              <tr [style.visibility]="showCalender ? 'visible' : 'hidden'">
                 <td>
                   Start Time
                 </td>
@@ -59,7 +59,7 @@
                   <input id="StartTime" ej-datetimepicker width="150" type="text" value="" name="StartTime" />
                 </td>
               </tr>
-              <tr>
+              <tr [style.visibility]="showCalender ? 'visible' : 'hidden'">
                 <td>
                   End Time
                 </td>
@@ -67,7 +67,7 @@
                   <input id="EndTime" ej-datetimepicker width="150" type="text" value="" name="EndTime" />
                 </td>
               </tr>
-
+              
 
               <tr id="edittr" style="display:none;">
                 <td colspan="3">
@@ -78,6 +78,7 @@
           </table>
         </form>
         <div>
+          
           <button type="button" (ejclick)="cancel($event)" ej-button width="85px" text="Cancel" id="btncancel" style="float:right;margin-right:20px;margin-bottom:10px;"></button>
           <button type="button" (ejclick)="save($event)" ej-button width="85px" text="Submit" id="btnsubmit" style="float:right;margin-right:20px;margin-bottom:10px;"></button>
         </div>

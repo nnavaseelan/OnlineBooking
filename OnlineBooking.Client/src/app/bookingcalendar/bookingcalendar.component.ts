@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EJComponents } from 'ej-angular2';
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Observable } from 'rxjs';
+import { BookingserviceService } from '../services/bookingservice.service';
+import { BookingModel } from '../model/bookingmodel';
 
 @Component({
   selector: 'booking-bookingcalendar',
@@ -8,13 +12,47 @@ import { EJComponents } from 'ej-angular2';
 })
 
 export class BookingcalendarComponent implements OnInit {
-  scheduleIteratons : number = 0;
+  public scheduleIteratons : number = 0;
+  public appoitmentCount:string;
+  public scheduleData: BookingModel[] = [];
+  public showCalender : boolean = true;
+  public minDate:Date;
   ngOnInit(): void {
     
   }
   
-  public scheduleData: any;
-  constructor() {
+  constructor(public bookingService:BookingserviceService, public http:Http) {
+  this.updateappcounts();
+this.minDate = new Date(Date.now());
+  this.bookingService.GetAllBookings().subscribe(res => {
+     this.scheduleData  = res;
+     let vals:number[] = [];
+     for(let i = this.scheduleData.length - 1; i >= 0; i--) 
+     {
+         if (this.scheduleData[i].Status == 1 || this.scheduleData[i].Status == 2)
+         {
+            this.scheduleData[i].Recurrence = false;
+            this.scheduleData[i].Categorize = "1,3";
+            this.scheduleData[i].AllDay = false;
+            this.scheduleData[i].Description = "";
+        
+        }
+        else
+        {
+           
+          this.scheduleData.splice(i,1);
+
+           // this.scheduleData.splice(this.scheduleData.indexOf(element),1);
+        }
+        
+     }
+        
+     });
+     
+     
+     //debugger;
+    
+ 
 
     // this.dataManager = ej.DataManager({
     //     // get the required appointments from service
@@ -63,6 +101,31 @@ export class BookingcalendarComponent implements OnInit {
 
   }
 
+   SetSchedularLayout(args: any) {
+       /*
+        switch (args.requestType) {
+    
+            case "leftindentcells":
+                args.element.css("background-color", "#0c0000");
+                break;
+            case "emptytd":
+                args.element.css("background-color", "#d20000");
+                args.element.css("border-color", "#faa41a");
+                break;
+        }
+        */
+    }
+
+  updateappcounts()
+  {
+    this.bookingService.GetBookingsCount().subscribe(res=>{this.appoitmentCount = res;
+    localStorage.setItem("appcount",this.appoitmentCount);
+    });
+    
+  }
+
+  
+
   onCellClick(args) {
     args.cancel = true;  // Prevents inline appointment creation on clicking the cells.
     this.onAppointmentWindowOpen(args);
@@ -73,11 +136,13 @@ export class BookingcalendarComponent implements OnInit {
 
   // This function executes before the default appointment window opens
   onAppointmentWindowOpen(args: any): void {
+      $("#customerId").val('');
       args.cancel = true; // prevents the display of default appointment window
       // defining recurrence editor control to be used as custom appointment window
       $("#recurrenceEditor").ejRecurrenceEditor({ selectedRecurrenceType: 0, frequencies: ["daily", "weekly", "monthly", "yearly", "everyweekday"] });
      // $("#recurrence").ejCheckBox({ change: this.recurCheck });
       var schObj = $("#Schedule1").data("ejSchedule");
+      this.showCalender = true;
       // When double clicked on the Scheduler cells, fills the StartTime and EndTime fields appropriately
       $("#StartTime").ejDateTimePicker({ value: args.startTime });
       $("#EndTime").ejDateTimePicker({ value: args.endTime });
@@ -96,12 +161,14 @@ export class BookingcalendarComponent implements OnInit {
           });
       }
       // If double clicked on the appointments, fill the custom appointment window fields with appropriate values.
-      if (!ej.isNullOrUndefined(args.appointment)) {          
+      if (!ej.isNullOrUndefined(args.appointment)) {    
+          this.showCalender = false;      
           $("#customerId").val(args.appointment.Id);          
-          $("#name").val(args.appointment.FullName);
+          $("#name").val(args.appointment.Name);
           $("#emailId").val(args.appointment.Email);
           $("#phoneNo").val(args.appointment.Phone);
           $("#StartTime").ejDateTimePicker({ value: new Date(args.appointment.StartTime) });
+          
           $("#EndTime").ejDateTimePicker({ value: new Date(args.appointment.EndTime) });
           // Fills the Appointment type dropdown with its value
           var value = args.appointment.AppointmentType;
@@ -129,8 +196,6 @@ export class BookingcalendarComponent implements OnInit {
   }
 
   save() {
-
-      alert("save clicked");
       // checks if the  value is not left blank before saving it.
       let name = $.trim($("#name").val());
       let email = $.trim($("#emailId").val());
@@ -138,22 +203,25 @@ export class BookingcalendarComponent implements OnInit {
 
       if (name == "") {
           $("#name").addClass("error");
+          debugger;
           return false;
       }
       if (email == "") {
             $("#emailId").addClass("error");
             return false;
         }
+        
       if (phone == "") {
             $("#phoneNo").addClass("error");
             return false;
         }
-      let newId  =  this.scheduleData[this.scheduleData.length-1].Id;
+     
+      //let newId  =  this.scheduleData[this.scheduleData.length-1].Id;
     
-      var obj = {Id: newId+1, 
-          FullName: name, 
-          StartTime: new Date($("#StartTime").val()),
-          EndTime: new Date($("#EndTime").val()), 
+      var obj = {Id: $("#customerId").val(), 
+          Name: name, 
+          StartTime: $("#StartTime").val(),
+          EndTime: $("#EndTime").val(), 
           Description: "", 
           AllDay: false, 
           Recurrence: false,
@@ -184,10 +252,16 @@ export class BookingcalendarComponent implements OnInit {
 
       obj["RecurrenceRule"] = (obj["Recurrence"]) ? this.recurRule : null;
       console.log($("#recurrence").val());
+      
       //var appTypeObj = $("#AppointmentType").data("ejDropDownList");
       //obj["AppointmentType"] = appTypeObj.getSelectedValue();
   // this.scheduleData.find((element) => {if (element.Id == )})
-    this.scheduleData.forEach(element => {
+
+
+  
+  this.bookingService.NewBooking(obj);
+  
+/*    this.scheduleData.forEach(element => {
         if (element.StartTime == obj.StartTime && element.endTime == obj.EndTime)
         {
             this.scheduleIteratons ++;
@@ -206,14 +280,18 @@ export class BookingcalendarComponent implements OnInit {
       
       this.scheduleData.push(obj);
       this.clearFields();
-      $("#customWindow").ejDialog("close");
+      
     }
+    */
+  //  $("#customWindow").ejDialog("close");
   }
 
   // This function executes when the cancel button in the custom appointment window is pressed.
   cancel(): void {
       this.clearFields();
+      
       $("#customWindow").ejDialog("close");
+
   }
 
   // Clears all the field values of the custom window after saving appointments

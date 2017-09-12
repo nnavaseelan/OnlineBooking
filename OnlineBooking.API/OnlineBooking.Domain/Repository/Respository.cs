@@ -79,7 +79,7 @@ namespace OnlineBooking.Domain.Repository
             return result>0;
         }
 
-        public TObject Update(TObject updated, int key)
+        public TObject Update(TObject updated, Guid key)
         {
             if (updated == null)
                 return null;
@@ -93,7 +93,7 @@ namespace OnlineBooking.Domain.Repository
             return existing;
         }
 
-        public async Task<TObject> UpdateAsync(TObject updated, int key)
+        public async Task<TObject> UpdateAsync(TObject updated, Guid key)
         {
             if (updated == null)
                 return null;

@@ -11,7 +11,11 @@ namespace OnlineBooking.Service
     {
         Task<bool> InsertBookingAsync(Booking booking);
         Task<Booking> GetBookingAsync(Guid bookingId);
-        Task<int> GetBookingCountAsync(DateTime date, DateTime startTime,DateTime endTime);
-        Task<List<Booking>> GetBookings(DateTime date, DateTime startTime, DateTime endTime);
+        Task<int> GetBookingCountAsync(DateTime startTime,DateTime endTime);
+        Task<List<Booking>> GetBookings(DateTime startTime, DateTime endTime);
+        Task<Booking> UpdateBookingAsync(Booking booking, Guid Id);
+
+
+
     }
 }
