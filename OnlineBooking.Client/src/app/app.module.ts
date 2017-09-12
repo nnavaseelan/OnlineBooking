@@ -38,7 +38,7 @@ import {DataFilterPipe} from "./data-filter.pipe";
   ]),
     EJAngular2Module.forRoot()
   ],
-  providers: [BookingserviceService,AuthenticationService],
+  providers: [BookingserviceService,AuthenticationService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,9 +17,8 @@ date: DateModel;
 find : string;
 options: DatePickerOptions;
 data:BookingModel[] = [];
-  constructor(public authService:AuthenticationService, public bookingService:BookingserviceService) {
-    this.find = "";
-    
+values  = ["Pending", "Approved", "Rejected"];
+  constructor(public authService:AuthenticationService, public dp:DatePipe, public bookingService:BookingserviceService) {
     this.authService.checkCredentials();
     this.options = new DatePickerOptions();
    this.bookingService.GetAllBookings().subscribe(res => {
@@ -39,7 +38,12 @@ data:BookingModel[] = [];
   }
 
   ngOnInit() {
+    this.options.autoApply = true;
+    let dt = new Date(Date.now());
     
+    this.find = this.dp.transform(dt,'yMd');
+    
+    this.options.initialDate =  new Date(Date.now());
   }
 
   OnChangeStatus(value, index) {

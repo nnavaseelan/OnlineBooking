@@ -3,13 +3,14 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
 import { EJComponents } from 'ej-angular2';
+import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class BookingserviceService {
   private mainUrl: string = "http://localhost:50300/api/";
 
   // private _movies: Observable<any[]>;
-  constructor(public http: Http) { }
+  constructor(public http: Http, public datePipe:DatePipe) { }
 
 
   GetBookingsCount(sDate = "2000-11-06 00:00:00.000", eDate = "2030-11-06 00:00:00.000") {
@@ -19,10 +20,27 @@ export class BookingserviceService {
 
   }
 
-  GetAllBookings() {
+  GetAllBookings(all:boolean = true) {
+    if (all)
+    {
     let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
     let obj: object = { 'startTime': '2000-11-06 00:00:00.000', 'endTime': '2030-11-06 00:00:00.000' };
     return this.http.get(this.mainUrl + "booking/bookinglist", { search: obj }).map(res => res.json());
+   }
+  
+  else
+  {
+    let dt = new Date();
+     dt.setDate(dt.getDate() - 1);
+    let dtStart= this.datePipe.transform(dt.toString(), 'short');
+    let dt2 = new Date();
+    dt2.setDate(dt.getDate() + 7);
+    let dtEnd =  this.datePipe.transform(dt2.toString(), 'short');
+    let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+    let obj: object = { 'startTime': dtStart, 'endTime': dtEnd };
+    return this.http.get(this.mainUrl + "booking/bookinglist", { search: obj }).map(res => res.json());
+  }
+  
 
   }
 

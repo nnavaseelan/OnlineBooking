@@ -17,6 +17,7 @@ export class BookingcalendarComponent implements OnInit {
   public scheduleData: BookingModel[] = [];
   public showCalender : boolean = true;
   public minDate:Date;
+  
   ngOnInit(): void {
     
   }
@@ -24,7 +25,7 @@ export class BookingcalendarComponent implements OnInit {
   constructor(public bookingService:BookingserviceService, public http:Http) {
   this.updateappcounts();
   this.minDate = new Date(Date.now());
-  this.bookingService.GetAllBookings().subscribe(res => {
+  this.bookingService.GetAllBookings(false).subscribe(res => {
      this.scheduleData  = res;
      let vals:number[] = [];
      for(let i = this.scheduleData.length - 1; i >= 0; i--) 

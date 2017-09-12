@@ -40,10 +40,10 @@
         <td>{{item.StartTime|date:'shortTime'}}</td>
         <td>{{item.EndTime|date}}</td>
         <td>{{item.EndTime|date:'shortTime'}}</td>
-        <td> <select (change)="OnChangeStatus($event.target.value, i)" [(ngModel)]="item.Status">
-                 <option value="1">Pending</option>
-                 <option value="2">Approved</option>
-                 <option value="3">Reject</option>
+        <td><select (change)="OnChangeStatus($event.target.value, i)" [(ngModel)]="item.Status">
+                 
+                 <option *ngFor = "let v of values; let j = index" [attr.value] = "j+1" [attr.selected]="(item.Status === j+1) ? true : null">{{v}}</option>
+                 
               </select>
         </td>
     </tr>
