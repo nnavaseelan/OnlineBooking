@@ -23,7 +23,7 @@ export class BookingcalendarComponent implements OnInit {
   
   constructor(public bookingService:BookingserviceService, public http:Http) {
   this.updateappcounts();
-this.minDate = new Date(Date.now());
+  this.minDate = new Date(Date.now());
   this.bookingService.GetAllBookings().subscribe(res => {
      this.scheduleData  = res;
      let vals:number[] = [];
@@ -38,10 +38,8 @@ this.minDate = new Date(Date.now());
         
         }
         else
-        {
-           
+        {           
           this.scheduleData.splice(i,1);
-
            // this.scheduleData.splice(this.scheduleData.indexOf(element),1);
         }
         

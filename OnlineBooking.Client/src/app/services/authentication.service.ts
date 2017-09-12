@@ -28,7 +28,7 @@ export class AuthenticationService {
     if (authenticatedUser && authenticatedUser.password === user.password){
       localStorage.setItem("user", authenticatedUser.email);
       this._router.navigate(['admin']);    
-      debugger;  
+     
       return true;
     }
     return false;

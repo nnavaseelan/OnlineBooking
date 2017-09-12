@@ -30,3 +30,16 @@ D:\api\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identi
 D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
 D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
 D:\api\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.pdb
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.pdb
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.xml
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
+E:\UpWork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
