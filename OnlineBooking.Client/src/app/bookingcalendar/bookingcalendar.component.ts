@@ -48,55 +48,6 @@ export class BookingcalendarComponent implements OnInit {
         
      });
      
-     
-     //debugger;
-    
- 
-
-    // this.dataManager = ej.DataManager({
-    //     // get the required appointments from service
-    //     url: "http://js.syncfusion.com/ejServices/api/Schedule/LoadCurrentData",
-    //     // enable cross domain
-    //     crossDomain: true
-    // });
-     
-//   this.scheduleData = [{
-//           Id: 100, 
-//           FullName: "Sea Gold", 
-//           StartTime: new Date(2017,9,7, 10, 0),
-//           EndTime: new Date(2017,9,7, 13, 0), 
-//           Description: "", 
-//           AllDay: false, 
-//           Recurrence: false,
-//           Categorize: "1,3",         
-//           Email:"navaseelan4u@gmail.com",
-//           Phone:"0774475196"
-         
-//       },
-//       {
-//           Id: 101,
-//           FullName: "Bering Sea Gold", 
-//           StartTime: new Date(2017, 9,5, 9, 0),
-//           EndTime: new Date(2017, 9,5, 12, 30), 
-//           Description: "",
-//            AllDay: false, 
-//            Recurrence: false, 
-//            Categorize: "2,5",          
-//            Email:"navaseelan4u@gmail.com",
-//            Phone:"0774475196"
-//       },
-//       {
-//           Id: 102, 
-//           FullName: "What Happened Next?", 
-//           StartTime: new Date(2017, 9, 6,8, 0),
-//           EndTime: new Date(2017, 9, 6, 14, 30), 
-//           Description: "", 
-//           AllDay: false, 
-//           Recurrence: false, 
-//           Categorize: "3,6",         
-//           Email:"navaseelan4u@gmail.com",
-//           Phone:"0774475196"
-//       }];
 
   }
 
@@ -228,61 +179,12 @@ export class BookingcalendarComponent implements OnInit {
           Email:email,
           Phone:phone};
     
-    //var formelement = $("#customWindow").find("#custom").get(0);
-    // looping through the custom form elements to get each value and form a JSON object
-    //   for (var index = 0; index < formelement.length; index++) {
-    //       var columnName = formelement[index].name, $element = $(formelement[index]);
-    //       if (columnName != undefined) {
-    //           if (columnName != "" && obj[columnName] == null) {
-    //               var value = formelement[index].value;
-    //               if (columnName == "Id" && value != "") {
-    //                   value = parseInt(value);
-    //               }
-    //               if ($element.hasClass("e-datetimepicker")) {
-    //                   value = new Date(value);
-    //               }
-    //               if (formelement[index].type == "checkbox") {
-    //                   value = formelement[index].checked;
-    //               }
-    //               obj[columnName] = value;
-    //           }
-    //       }
-    //   }
-
+    
       obj["RecurrenceRule"] = (obj["Recurrence"]) ? this.recurRule : null;
-      console.log($("#recurrence").val());
-      
-      //var appTypeObj = $("#AppointmentType").data("ejDropDownList");
-      //obj["AppointmentType"] = appTypeObj.getSelectedValue();
-  // this.scheduleData.find((element) => {if (element.Id == )})
-
-
-  
+      console.log($("#recurrence").val());   
+ 
   this.bookingService.NewBooking(obj);
-  
-/*    this.scheduleData.forEach(element => {
-        if (element.StartTime == obj.StartTime && element.endTime == obj.EndTime)
-        {
-            this.scheduleIteratons ++;
-            if (this.scheduleIteratons >= 10)
-            {
-                alert("Reached maximum of 10 appointments during this period. Please select a different time");
-                return;
-            }
-        }
-    });
-
-    if (this.scheduleIteratons < 10)
-    {
-      var schObj = $("#Schedule1").data("ejSchedule");
-      schObj.saveAppointment(obj);
-      
-      this.scheduleData.push(obj);
-      this.clearFields();
-      
-    }
-    */
-  //  $("#customWindow").ejDialog("close");
+ 
   }
 
   // This function executes when the cancel button in the custom appointment window is pressed.
@@ -362,13 +264,5 @@ export class BookingcalendarComponent implements OnInit {
         args.cancel = true 
   }  
 
-//   onBeforeAppointmentCreate(args) { 
-//     if (ej.isNullOrUndefined(args.appointment[0])) 
-//         app = args.appointment; 
-//     else 
-//         app = args.appointment[0]; 
-//     if (new Date(app.StartTime).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0)) 
-//         args.cancel = true 
-// } 
 
 }

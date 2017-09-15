@@ -13,7 +13,7 @@ export class BookingserviceService {
   constructor(public http: Http, public datePipe:DatePipe) { }
 
 
-  GetBookingsCount(sDate = "2000-11-06 00:00:00.000", eDate = "2030-11-06 00:00:00.000") {
+  GetBookingsCount(sDate = "2017-09-01 00:00:00.000", eDate = "2017-12-12 00:00:00.000") {
     let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
     let obj: object = { 'startTime': sDate, 'endTime': eDate };
     return this.http.get(this.mainUrl + "booking/allowcount", { search: obj }).map(res => res.json());
@@ -24,14 +24,14 @@ export class BookingserviceService {
     if (all)
     {
     let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
-    let obj: object = { 'startTime': '2000-11-06 00:00:00.000', 'endTime': '2030-11-06 00:00:00.000' };
+    let obj: object = { 'startTime': '2017-09-01 00:00:00.000', 'endTime': '2017-12-12 00:00:00.000' };
     return this.http.get(this.mainUrl + "booking/bookinglist", { search: obj }).map(res => res.json());
    }
   
   else
   {
     let dt = new Date();
-     dt.setDate(dt.getDate() - 1);
+    dt.setDate(dt.getDate() - 1);
     let dtStart= this.datePipe.transform(dt.toString(), 'short');
     let dt2 = new Date();
     dt2.setDate(dt.getDate() + 7);
@@ -61,7 +61,7 @@ export class BookingserviceService {
             obj["StartTime"] = new Date(obj["StartTime"]);
             obj["EndTime"] = new Date(obj["EndTime"]);
             schObj.saveAppointment(obj);
-            alert("Appointment Created");
+            
             let count: number = parseInt(localStorage.getItem("appcount"));
             if (localStorage.getItem("appcount") == null) {
               count = 0;
@@ -85,7 +85,7 @@ export class BookingserviceService {
 
       this.http.post(this.mainUrl + "booking/updateappointment", jString, options).toPromise().then(res => {
 
-        alert("Appointment Updated");
+       alert("Appointment Updated");
 
       })
 

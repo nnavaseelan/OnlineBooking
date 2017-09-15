@@ -20,10 +20,10 @@ export class AuthenticationService {
  
   logout() {
     localStorage.removeItem("user");
-  //  this._router.navigate(['/']);
   }
  
   login(user){
+    
     var authenticatedUser = users.find(u => u.email === user.email);
     if (authenticatedUser && authenticatedUser.password === user.password){
       localStorage.setItem("user", authenticatedUser.email);
