@@ -43,3 +43,16 @@ E:\upwork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\Onli
 E:\upwork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
 E:\upwork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
 E:\upwork\ongoing-projects\BPO\BookingManagement\New-Code\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.pdb
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.pdb
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.xml
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
+D:\OnlineBookingClone\OnlineBooking\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb

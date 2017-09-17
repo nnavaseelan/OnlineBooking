@@ -41,7 +41,7 @@ export class AppComponent {
     loggedIn = false;
    constructor (public auth:AuthenticationService)
    {
-
+    
    }
     getAppCount() {
 

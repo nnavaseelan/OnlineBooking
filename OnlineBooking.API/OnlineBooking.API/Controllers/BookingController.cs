@@ -46,12 +46,20 @@ namespace OnlineBooking.API.Controllers
                 return BadRequest("Saved failed !");
 
         }
-
+        
         [Route("allowcount")]
         [HttpGet]
         public async Task<IHttpActionResult> BookingCount(DateTime startTime, DateTime endTime)
         {
             var result = await _bookingService.GetBookingCountAsync(startTime,endTime);
+            return Json(result);
+        }
+
+        [Route("checkslots")]
+        [HttpGet]
+        public async Task<IHttpActionResult> CheckBookedSlots(DateTime startTime)
+        {
+            var result = await _bookingService.CheckBookedSlotAsync(startTime);
             return Json(result);
         }
 

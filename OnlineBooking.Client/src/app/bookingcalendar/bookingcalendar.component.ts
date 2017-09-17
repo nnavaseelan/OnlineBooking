@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewContainerRef  } from '@angular/core';
 import { EJComponents } from 'ej-angular2';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { BookingserviceService } from '../services/bookingservice.service';
 import { BookingModel } from '../model/bookingmodel';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'booking-bookingcalendar',
@@ -22,9 +23,13 @@ export class BookingcalendarComponent implements OnInit {
     
   }
   
-  constructor(public bookingService:BookingserviceService, public http:Http) {
+  constructor(public bookingService:BookingserviceService, public http:Http, public toastr: ToastsManager, vcr: ViewContainerRef) {
+  this.toastr.setRootViewContainerRef(vcr);
   this.updateappcounts();
-  this.minDate = new Date(Date.now());
+  
+  let ds = new Date();
+ ds.setDate(ds.getDate()-1);
+  this.minDate = ds;
   this.bookingService.GetAllBookings(false).subscribe(res => {
      this.scheduleData  = res;
      let vals:number[] = [];
@@ -51,24 +56,13 @@ export class BookingcalendarComponent implements OnInit {
 
   }
 
-   SetSchedularLayout(args: any) {
-       /*
-        switch (args.requestType) {
-    
-            case "leftindentcells":
-                args.element.css("background-color", "#0c0000");
-                break;
-            case "emptytd":
-                args.element.css("background-color", "#d20000");
-                args.element.css("border-color", "#faa41a");
-                break;
-        }
-        */
-    }
+
+
 
   updateappcounts()
   {
     this.bookingService.GetBookingsCount().subscribe(res=>{this.appoitmentCount = res;
+        console.log(res);
     localStorage.setItem("appcount",this.appoitmentCount);
     });
     
@@ -81,6 +75,11 @@ export class BookingcalendarComponent implements OnInit {
     this.onAppointmentWindowOpen(args);
  }
   
+  clicked()
+  {
+      console.log("clicked");
+ //this.toastr.success('You are awesome!', 'Success!');
+  }
 
   public recurRule;
 

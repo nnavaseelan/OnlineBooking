@@ -15,7 +15,9 @@ import { DatePickerModule } from 'ng2-datepicker';
 import {DataTableModule} from "angular2-datatable";
 import { DatePipe } from '@angular/common';
 import {DataFilterPipe} from "./data-filter.pipe";
-
+import {MdSnackBar,OVERLAY_PROVIDERS} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import {DataFilterPipe} from "./data-filter.pipe";
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     DatePickerModule,
     DataTableModule,
     RouterModule.forRoot([
@@ -36,7 +39,9 @@ import {DataFilterPipe} from "./data-filter.pipe";
       { path: '', redirectTo: 'calendar', pathMatch: 'full'},
       { path: '**', redirectTo: 'calendar', pathMatch: 'full'}
   ]),
-    EJAngular2Module.forRoot()
+    EJAngular2Module.forRoot(),
+     ToastModule.forRoot()
+  
   ],
   providers: [BookingserviceService,AuthenticationService,DatePipe],
   bootstrap: [AppComponent]
