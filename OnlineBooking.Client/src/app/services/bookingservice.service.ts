@@ -103,7 +103,7 @@ export class BookingserviceService {
           });
             }
             else {
-              this.toastr.warning("Please Select different slot. There are appointments already exists wiyhin same time interval", 'Alert!');
+              this.toastr.warning("Please Select different slot. There are appointments already exists wiyhin same time interval", 'Alert!', {positionClass:'toast-top-center',newestOnTop:true, toastLife:5000, animate:'flyLeft'});
             }
           });
           
