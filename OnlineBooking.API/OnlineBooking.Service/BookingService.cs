@@ -24,7 +24,6 @@ namespace OnlineBooking.Service
             if (result.Count > 0)
             {
                return 0;
-            
             }
              result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);
            
