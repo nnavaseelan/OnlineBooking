@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { BookingserviceService } from '../services/bookingservice.service';
 import { BookingModel } from '../model/bookingmodel';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-
+//booking
 @Component({
   selector: 'booking-bookingcalendar',
   templateUrl: './bookingcalendar.component.html',

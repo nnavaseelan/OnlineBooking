@@ -41,7 +41,7 @@ export class BookingserviceService {
     return this.http.get(this.mainUrl + "booking/checkslots", { search: obj }).map(res => res.json());
 
   }
-
+//booking
   GetAllBookings(all: boolean = true) {
     if (all) {
       let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });

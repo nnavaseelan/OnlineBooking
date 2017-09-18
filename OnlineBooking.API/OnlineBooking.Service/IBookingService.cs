@@ -16,7 +16,7 @@ namespace OnlineBooking.Service
         Task<Booking> UpdateBookingAsync(Booking booking, Guid Id);
 
         Task<int> CheckBookedSlotAsync(DateTime startTime, DateTime endTime);
-
+        //booking
 
 
     }

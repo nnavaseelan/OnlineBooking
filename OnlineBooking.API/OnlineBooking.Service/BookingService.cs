@@ -9,6 +9,7 @@ using OnlineBooking.Domain;
 
 namespace OnlineBooking.Service
 {
+    //booking
     public class BookingService : IBookingService
     {
         private readonly Respository<Booking> _respository;
