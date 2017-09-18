@@ -18,9 +18,16 @@ namespace OnlineBooking.Service
             _respository = new Respository<Booking>(context);
         }
 
-        public async Task<int> CheckBookedSlotAsync(DateTime startTime)
+        public async Task<int> CheckBookedSlotAsync(DateTime startTime, DateTime endTime)
         {
-            var result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);
+           var result = await _respository.FindAllAsync(q => q.EndTime == endTime && q.StartTime == startTime);
+            if (result.Count > 0)
+            {
+               return 0;
+            
+            }
+             result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);
+           
             return result.Count();
         }
 
