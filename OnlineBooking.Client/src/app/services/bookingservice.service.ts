@@ -5,15 +5,17 @@ import { Observable } from 'rxjs';
 import { EJComponents } from 'ej-angular2';
 import { DatePipe } from '@angular/common';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { environment } from "environments/environment";
 
 @Injectable()
 export class BookingserviceService {
+  
   private mainUrl: string = "http://localhost:50300/api/";
 
 
   constructor(public http: Http, public datePipe: DatePipe, public toastr: ToastsManager) {
 
-
+        this.mainUrl=environment.apiEndPoint;
   }
 
   GetBookingsCount(sDate = "start", eDate = "end") {

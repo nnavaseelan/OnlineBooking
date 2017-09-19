@@ -96,3 +96,20 @@ C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBookin
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.csproj.GenerateResource.Cache
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.dll
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.pdb
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.dll.config
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\OnlineBooking.Domain.pdb
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\EntityFramework.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\EntityFramework.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.csprojResolveAssemblyReference.cache
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.Migrations.initialcommit.resources
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.Migrations.addbookingset.resources
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.csproj.GenerateResource.Cache
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Domain\obj\Debug\OnlineBooking.Domain.pdb

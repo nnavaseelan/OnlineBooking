@@ -69,3 +69,16 @@ C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBookin
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
 C:\Users\N.Navaseelan\AppData\Roaming\Skype\My Skype Received Files\OnlineBooking.API\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Service.pdb
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\OnlineBooking.Domain.pdb
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\EntityFramework.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.csprojResolveAssemblyReference.cache
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.dll
+E:\upwork\ongoing-projects\bpo\bookingmanagement\WA\OnlineBooking.API\OnlineBooking.Service\obj\Debug\OnlineBooking.Service.pdb
