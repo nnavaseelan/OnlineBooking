@@ -9,6 +9,7 @@ using OnlineBooking.Domain;
 
 namespace OnlineBooking.Service
 {
+    //booking
     public class BookingService : IBookingService
     {
         private readonly Respository<Booking> _respository;
@@ -18,16 +19,15 @@ namespace OnlineBooking.Service
             _respository = new Respository<Booking>(context);
         }
 
-        public async Task<int> CheckBookedSlotAsync(DateTime startTime)
+        public async Task<int> CheckBookedSlotAsync(DateTime startTime, DateTime endTime)
         {
-            var result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);
-
+           var result = await _respository.FindAllAsync(q => q.EndTime == endTime && q.StartTime == startTime);
             if (result.Count > 0)
             {
                return 0;
             }
-            result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);           
-
+             result = await _respository.FindAllAsync(q => q.EndTime >= startTime &&  q.StartTime <= startTime);
+           
             return result.Count();
         }
 

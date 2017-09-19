@@ -57,12 +57,12 @@ namespace OnlineBooking.API.Controllers
 
         [Route("checkslots")]
         [HttpGet]
-        public async Task<IHttpActionResult> CheckBookedSlots(DateTime startTime)
+        public async Task<IHttpActionResult> CheckBookedSlots(DateTime startTime, DateTime endTime)
         {
-            var result = await _bookingService.CheckBookedSlotAsync(startTime);
+            var result = await _bookingService.CheckBookedSlotAsync(startTime, endTime);
             return Json(result);
         }
-
+        //booking
         [Route("bookinglist")]
         [HttpGet]
         public async Task<IHttpActionResult> Bookings(DateTime startTime, DateTime endTime)
