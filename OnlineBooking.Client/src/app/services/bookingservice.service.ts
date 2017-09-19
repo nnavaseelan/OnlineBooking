@@ -31,15 +31,17 @@ export class BookingserviceService {
     return this.http.get(this.mainUrl + "booking/allowcount", { search: obj }).map(res => res.json());
   }
 
-  GetSlotCount(sDate) {
+  GetSlotCount(sDate,eDate) {
     let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
     let dt = new Date(sDate);
     let start = this.datePipe.transform(dt.toString(), 'short');
-    let obj: object = { 'startTime': start };
+    let dt2 = new Date(eDate);
+    let end = this.datePipe.transform(dt2.toString(), 'short');
+    let obj: object = { 'startTime': start,'endTime': end};
     return this.http.get(this.mainUrl + "booking/checkslots", { search: obj }).map(res => res.json());
 
   }
-
+//booking
   GetAllBookings(all: boolean = true) {
     if (all) {
       let myHeaders = new Headers({ 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
@@ -80,8 +82,8 @@ export class BookingserviceService {
       this.GetBookingsCount(obj["StartTime"], obj["EndTime"]).subscribe(res => {
 
         if (parseInt(res) < 10) {
-          this.GetSlotCount(obj["StartTime"]).subscribe(res => {
-            if (parseInt(res) > 0) {
+          this.GetSlotCount(obj["StartTime"],obj["EndTime"]).subscribe(res => {
+            if (parseInt(res) == 0) {
               this.http.post(this.mainUrl + "booking/appointment", jString, options).toPromise().then(res => {
                 var schObj = $("#Schedule1").data("ejSchedule");
                 obj["StartTime"] = new Date(obj["StartTime"]);
@@ -98,32 +100,18 @@ export class BookingserviceService {
 
               });
             }
-            
-            else if (parseInt(res) == 0) {
-              this.http.post(this.mainUrl + "booking/appointment", jString, options).toPromise().then(res => {
-                var schObj = $("#Schedule1").data("ejSchedule");
-                obj["StartTime"] = new Date(obj["StartTime"]);
-                obj["EndTime"] = new Date(obj["EndTime"]);
-                schObj.saveAppointment(obj);
-
-                let count: number = parseInt(localStorage.getItem("appcount"));
-                if (localStorage.getItem("appcount") == null) {
-                  count = 0;
-                }
-                localStorage.setItem("appcount", (count + 1).toString());
-                this.toastr.success('Created new appointment Successfully', 'Success!', { positionClass: 'toast-top-center', newestOnTop: true, toastLife: 5000, animate: 'flyLeft' });
-                $("#customWindow").ejDialog("close");
-
-              });
-            }
-            
+          
             else {
-              this.toastr.warning("Please Select different slot. There are appointments already exists wiyhin same time interval", 'Alert!', { positionClass: 'toast-top-center', newestOnTop: true, toastLife: 5000, animate: 'flyLeft' });
-              $("#customWindow").ejDialog("close");
+              this.toastr.warning("Please Select different slot. There are appointments already exists within same time interval", 'Alert!', { positionClass: 'toast-top-center', newestOnTop: true, toastLife: 5000, animate: 'flyLeft' });
+             // $("#customWindow").ejDialog("close");
             }
           });
 
         }
+        else {
+              this.toastr.warning("Please Select different slot. Exceeded appointment limit(10)", 'Alert!', { positionClass: 'toast-top-center', newestOnTop: true, toastLife: 5000, animate: 'flyLeft' });
+             // $("#customWindow").ejDialog("close");
+            }
       
       });
     }
